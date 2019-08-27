@@ -59,7 +59,7 @@ public class PetAPIMethods extends PetClient {
     public PetModel petChanges(PetModel petModel) {
         return petModel
                 .setStatus("sold")
-                .setName("test name");
+                .setName("testName");
     }
 
     public Response petPostUploadImage(String id) {

@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rest.BL.pet.ReadyAPIMethodsForPet;
 import rest.client.petClient.PetAPIMethods;
 import rest.client.petClient.PetClient;
 import rest.models.petModels.CategoryModel;
@@ -20,18 +21,20 @@ import static rest.builder.petBuilder.BuilderPet.petBuilder;
 
 public class RestPetStoreTests extends PetAPIMethods {
     private PetClient petClient;
+    private PetModel petModel;
+    private ReadyAPIMethodsForPet methods = new ReadyAPIMethodsForPet();
+    private Response response;
 
     @BeforeEach
     void setUp() {
         petClient = new PetClient();
+        petModel = petBuilder();
     }
 
     @Test
     public void testPetInfoById() {
-        Response response2 = new PetAPIMethods().petPostUploadImage("7");
-
-        Response response = petClient.setup()
-                .get(String.valueOf(629496))
+        response = petClient.setup()
+                .get(String.valueOf(12))
                 .then()
                 .extract().response();
         assertEquals(200, response.getStatusCode());
@@ -41,9 +44,14 @@ public class RestPetStoreTests extends PetAPIMethods {
     }
 
     @Test
+    public void testUploadImageForPet(){
+        response = petPostUploadImage("7");
+    }
+
+    @Test
     public void testPetPost() {
         PetModel petsample = petBuilder();
-        Response response = postPetStore(petsample);
+        response = postPetStore(petsample);
         assertEquals(200, response.getStatusCode());
         assertEquals(12, petsample.getId());
     }
@@ -58,60 +66,23 @@ public class RestPetStoreTests extends PetAPIMethods {
 
     @Test
     public void testPutPetStore() {
-//        StoreModel responseByGet = getPetById(629496);
-//        PetModel result = responseByGet.as(PetModel.class);
-//        PetModel putexample = petBuilder();
-//        StoreModel response = putPetStore(putexample,629496);
-//        putexample = response.as(PetModel.class);
-//        assertNotEquals(result.getName(),putexample.getName());
-//        System.out.println(result);
-//
-//        StoreModel responseByGet = getPetById(629496);
-//        PetModel result = responseByGet.as(PetModel.class);
-//        RestAssured.given()
-//                .pathParam("id",629496)
-//                .pathParam("status", "available")
-//                .when()
-//                .put("/reverse/{id}/{status}")
-//                .then()
-//                .extract().response();
         PetModel example = petBuilder();
         Response responseByGet = getPetById(example);
         PetModel test = parseIntoPet(responseByGet);
         test.setName("testName");
         test.setCategory(CategoryModel.builder().name("testName").build());
-        Response response = putPetStore(test);
+        response = putPetStore(test);
         assertEquals(200, response.getStatusCode());
-
-
-//        String id ="629496";
-//            String changes = "{\r\n"+
-//            "\"id\": \"629496\",\r\n"+
-//            "\"category\": {\r\n"+
-//            "\"name\":\"put_test_pet\",\r\n"+
-//            "},\r\n"+
-//            "\"name\":\"put_test_pet\",\r\n"+
-//            "\"photoUrls\":\"[\"\r\n"+
-//            "\"nXYlziLgtP\"\r\n"+
-//            "\"],\"\r\n"+
-//            "\"tags\":[\"\r\n"+
-//            "\"{\"\r\n"+
-//            "\"id\": \"629496\",\r\n"+
-//            "\"name\":\"put_test_pet\",\r\n"+
-//            "},\r\n"+
-//            "\"],\"\r\n"+
-//            "\"status\":\"available\"\r\n"+
-//            "},\r\n";
-        // StoreModel response = putPetStore(id,changes);
 
     }
 
     @Test
     public void testDeletePetById() {
         PetModel petModel = petBuilder();
+        response = postPetStore(petModel);
         Response responseById = getPetById(petModel);
         PetModel createdPet = parseIntoPet(responseById);
-        Response response = deletePetById(petModel);
+        response = deletePetById(petModel);
         assertEquals(200, response.getStatusCode());
     }
 
@@ -123,11 +94,6 @@ public class RestPetStoreTests extends PetAPIMethods {
         responseByStatus.stream()
                 .limit(1)
                 .forEach(System.out::println);
-//        List<PetModel> listOfPetsWithStatus = new ArrayList<>();
-//        listOfPetsWithStatus.add(responseByStatus.as(PetModel.class));
-//        assertEquals(200, responseByStatus.getStatusCode());
-
-
     }
 
     @Test
@@ -137,14 +103,14 @@ public class RestPetStoreTests extends PetAPIMethods {
                 .collect(Collectors.toList());
 
         List<PetModel> updatedPetModels = new PetAPIMethods().putPetListStore(petModelList);
-        assertTrue(CollectionUtils.isEqualCollection(petModelList, updatedPetModels));
+        assertFalse(CollectionUtils.isEqualCollection(petModelList, updatedPetModels));
     }
 
     @Test
     public void testPutPetAfterChanges() {
         PetModel beforeChages = petBuilder();
         PetModel result = petChanges(beforeChages);
-        Response response = getPetById(beforeChages);
+        response = getPetById(beforeChages);
         response = putPetStore(result);
         assertEquals(200, response.getStatusCode());
     }
@@ -158,5 +124,13 @@ public class RestPetStoreTests extends PetAPIMethods {
         deletePetById(petModel);
         Response responseGetByIdAfterDelete = getPetById(petModel);
         assertNotEquals(responseGetById.getStatusCode(), responseGetByIdAfterDelete.getStatusCode());
+    }
+
+    @Test
+    public void petTest(){
+        methods.postPetAndCheckIfOperationIsSuccess(petModel);
+        methods.putPetUpgradesAndCheckIfChanged(petModel);
+        methods.deletePetAndCheckIfDeleted(petModel);
+
     }
 }

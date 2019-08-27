@@ -3,6 +3,7 @@ package rest;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rest.BL.order.ReadyAPIMethodsForOrder;
 import rest.client.orderClient.StoreApiMethods;
 import rest.client.petClient.PetAPIMethods;
 import rest.client.petClient.PetClient;
@@ -20,6 +21,7 @@ public class StoreAPITests extends StoreApiMethods {
     private StoreModel storeModel;
     private StoreModel expected;
     private StoreModel actual;
+    private ReadyAPIMethodsForOrder methods = new ReadyAPIMethodsForOrder();
 
     @BeforeEach
     public void setUp() {
@@ -62,13 +64,22 @@ public class StoreAPITests extends StoreApiMethods {
         storeModel = orderBuilder(petModel);
         response = postOrder(storeModel);
         assertEquals(storeModel, parseIntoOrder(response));
+
         expected = parseIntoOrder(response);
         response = getOrderById(storeModel);
         actual = parseIntoOrder(response);
         assertEquals(expected, actual);
+
         response = deleteOrder(storeModel);
         assertEquals(200, response.getStatusCode());
         response = getOrderById(expected);
         assertEquals(404, response.getStatusCode());
+    }
+
+    @Test
+    public void orderTest(){
+        storeModel = orderBuilder(petModel);
+        methods.postOrderAndCheckIfPosted(storeModel);
+        methods.deleteOrderAndCheckIfDeleted(storeModel);
     }
 }

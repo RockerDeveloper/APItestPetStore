@@ -46,4 +46,17 @@ public class UserApiMethods extends UserClient {
                 .put();
     }
 
+    public Response logInUserByUsernameAndPassword(UserModel userModel){
+        return setFil()
+                .queryParam("username",userModel.getUsername())
+                .queryParam("password", userModel.getPassword())
+                //.pathParam()
+                .get("login/");
+    }
+
+    protected Response logOutUserByPath(){
+        return setFil()
+                .get("/logout");
+    }
+
 }
