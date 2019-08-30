@@ -3,6 +3,8 @@ package rest;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import rest.BL.order.ReadyAPIMethodsForOrder;
 import rest.client.orderClient.StoreApiMethods;
 import rest.client.petClient.PetAPIMethods;
@@ -15,6 +17,7 @@ import static rest.BL.ParseIntoClass.parseIntoOrder;
 import static rest.builder.orderBuilder.OderBuilder.orderBuilder;
 import static rest.builder.petBuilder.BuilderPet.petBuilder;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class StoreAPITests extends StoreApiMethods {
     private Response response;
     private PetModel petModel;
@@ -31,34 +34,34 @@ public class StoreAPITests extends StoreApiMethods {
 
     }
 
-    @Test
-    public void postOrderTest() {
-        storeModel = orderBuilder(petModel);
-        response = postOrder(storeModel);
-        assertEquals(200, response.getStatusCode());
-    }
-
-    @Test
-    public void getOrderByIdTest() {
-        storeModel = orderBuilder(petModel);
-        response = getOrderById(storeModel);
-        assertEquals(200, response.getStatusCode());
-    }
-
-    @Test
-    public void getOrderByStatusTest() {
-        response = getStoreByInventory();
-        assertEquals(200, response.getStatusCode());
-
-    }
-
-    @Test
-    public void deleteOrderById() {
-        storeModel = orderBuilder(petModel);
-        response = deleteOrder(storeModel);
-        assertEquals(200, response.getStatusCode());
-    }
-
+//    @Test
+//    public void postOrderTest() {
+//        storeModel = orderBuilder(petModel);
+//        response = postOrder(storeModel);
+//        assertEquals(200, response.getStatusCode());
+//    }
+//
+//    @Test
+//    public void getOrderByIdTest() {
+//        storeModel = orderBuilder(petModel);
+//        response = getOrderById(storeModel);
+//        assertEquals(200, response.getStatusCode());
+//    }
+//
+//    @Test
+//    public void getOrderByStatusTest() {
+//        response = getStoreByInventory();
+//        assertEquals(200, response.getStatusCode());
+//
+//    }
+//
+//    @Test
+//    public void deleteOrderById() {
+//        storeModel = orderBuilder(petModel);
+//        response = deleteOrder(storeModel);
+//        assertEquals(200, response.getStatusCode());
+//    }
+//
     @Test
     public void orderLifeCycleTest() {
         storeModel = orderBuilder(petModel);
