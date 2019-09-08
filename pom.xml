@@ -50,10 +50,13 @@
                     <version>3.0.0-M3</version>
                     <configuration>
                         <properties>
+
                             <property>
                                 <name>listener</name>
                                 <value>io.qameta.allure.junit5.AllureJunit5</value>
                             </property>
+=======
+>>>>>>> 49af83800f945dcb31f953a61920d204fab2c952
                             <configurationParameters>
                                 junit.jupiter.conditions.deactivate = *
                                 junit.jupiter.extensions.autodetection.enabled = true

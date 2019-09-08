@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12d84a2c-8776-48ca-9907-3016a6e21b45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rest/utils/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BL/DateConversation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BL/order/ReadyAPIMethodsForOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BL/order/ReadyAPIMethodsForOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BL/pet/ReadyAPIMethodsForPet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BL/pet/ReadyAPIMethodsForPet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/BL/user/ReadyAPIMethodsForUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/BL/user/ReadyAPIMethodsForUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/assertions/BaseAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/assertions/BaseAssertions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/assertions/PetAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/assertions/PetAssertions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/builder/orderBuilder/OderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/builder/orderBuilder/OderBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/fail/FailPetModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/FailPetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/FailPetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/RestPetStoreTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/RestPetStoreTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/UserAPITests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/UserAPITests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/junit-platform.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/junit-platform.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/rest/FailPetTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="582">
@@ -58,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="136">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="n#developers#0;n#project#0;n#!!top" />
               </folding>
@@ -218,9 +203,9 @@
         <option value="$PROJECT_DIR$/src/main/java/rest/fail/FailPetClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/assertions/PetAssertions.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/BL/order/ReadyAPIMethodsForOrder.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/rest/BL/pet/ReadyAPIMethodsForPet.java" />
         <option value="$PROJECT_DIR$/src/test/java/rest/FailPetTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -321,7 +306,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567968415747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567969156918" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -921,16 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="n#developers#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -959,6 +934,16 @@
             <element signature="imports" expanded="true" />
             <element signature="e#375#376#0" expanded="true" />
             <element signature="e#433#434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="n#developers#0;n#project#0;n#!!top" />
           </folding>
         </state>
       </provider>
