@@ -20,7 +20,7 @@ public class FailPetClient {
 
     public FailPetModel failPetModelAfterChange(FailPetModel failPetModel){
         return failPetModel
-                .setId(88)
+                .setId(12)
                 .setStatus(77);
     }
 
@@ -32,11 +32,11 @@ public class FailPetClient {
 
     public Response getFailPetById(FailPetModel failPetModel){
         return trueSetUp()
-                .pathParam("id",failPetModel.getId())
-                .get();
+                //.pathParam("id",failPetModel.getId())
+                .get(String.valueOf(failPetModel.getId()));
     }
 
-    public Response putFailPet(FailPetModel failPetModel){
+    public  Response putFailPet(FailPetModel failPetModel){
         return trueSetUp()
                 .body(failPetModelAfterChange(failPetModel))
                 .put();
@@ -44,8 +44,8 @@ public class FailPetClient {
 
     public Response deleteFailPetById(FailPetModel failPetModel){
         return trueSetUp()
-                .pathParam("id",failPetModel.getId())
-                .delete();
+                //.pathParam("id",failPetModel.getId())
+                .delete(String.valueOf(failPetModel.getId()));
     }
 
 }

@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import rest.models.petModels.PetModel;
 import rest.models.storeModels.StoreModel;
 
-import static rest.BL.DateConversation.dateGenerationAndCasting;
+import static rest.utils.Utils.dateGenerationAndCasting;
 
 public class OderBuilder {
     public static StoreModel orderBuilder(PetModel petModel) {

@@ -3,10 +3,14 @@ package rest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import rest.BL.user.ReadyAPIMethodsForUser;
 import rest.models.userModels.UserModel;
 
 import static rest.builder.userBuilder.UserBuilder.userBuilder;
+
+@Execution(ExecutionMode.CONCURRENT)
 
 public class UserAPITests {
     private ReadyAPIMethodsForUser methods = new ReadyAPIMethodsForUser();
@@ -29,7 +33,6 @@ public class UserAPITests {
         methods.putSomeChangesForOneUserAndChecking(userModel);
         methods.singInAndLogOutUser(userModel);
     }
-
 
 
 }

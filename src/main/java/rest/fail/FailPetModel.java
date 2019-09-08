@@ -16,13 +16,16 @@ import lombok.experimental.Accessors;
 public class FailPetModel {
 
     @JsonProperty("name")
-    private char name;
+    private int name;
 
     @JsonProperty("id")
     private int id;
 
     @JsonProperty("status")
     private int status;
+
+    @JsonProperty("category")
+    private int category;
 
     public boolean equals(Object o) {
         boolean rezult;

@@ -34,7 +34,7 @@ public class RestPetStoreTests extends PetAPIMethods {
         petModel = petBuilder();
     }
 
-   // @Test
+     @Test
     public void testPetInfoById() {
         response = petClient.setup()
                 .get(String.valueOf(12))
@@ -46,12 +46,12 @@ public class RestPetStoreTests extends PetAPIMethods {
 
     }
 
-   // @Test
-    public void testUploadImageForPet(){
+    @Test
+    public void testUploadImageForPet() {
         response = petPostUploadImage("7");
     }
 
-    //@Test
+    @Test
     public void testPetPost() {
         PetModel petsample = petBuilder();
         response = postPetStore(petsample);
@@ -59,7 +59,7 @@ public class RestPetStoreTests extends PetAPIMethods {
         assertEquals(12, petsample.getId());
     }
 
-    //@Test
+    @Test
     public void testPetGetById() {
         PetModel example = petBuilder();
         Response responseByGet = getPetById(example);
@@ -79,7 +79,7 @@ public class RestPetStoreTests extends PetAPIMethods {
 
     }
 
-   // @Test
+    @Test
     public void testDeletePetById() {
         PetModel petModel = petBuilder();
         response = postPetStore(petModel);
@@ -89,7 +89,7 @@ public class RestPetStoreTests extends PetAPIMethods {
         assertEquals(200, response.getStatusCode());
     }
 
-   // @Test
+    @Test
     public void testGetPetByStatus() {
         List<PetModel> responseByStatus = Arrays.asList(getPetByStatus("sold")
                 .as(PetModel[].class));
@@ -109,7 +109,7 @@ public class RestPetStoreTests extends PetAPIMethods {
         assertFalse(CollectionUtils.isEqualCollection(petModelList, updatedPetModels));
     }
 
-   // @Test
+    @Test
     public void testPutPetAfterChanges() {
         PetModel beforeChages = petBuilder();
         PetModel result = petChanges(beforeChages);
@@ -118,7 +118,7 @@ public class RestPetStoreTests extends PetAPIMethods {
         assertEquals(200, response.getStatusCode());
     }
 
-    //@Test
+    @Test
     public void fullCycleTest() {
         PetModel petModel = petBuilder();
         postPetStore(petModel);
@@ -130,7 +130,7 @@ public class RestPetStoreTests extends PetAPIMethods {
     }
 
     @Test
-    public void petTest(){
+    public void petTest() {
         methods.postPetAndCheckIfOperationIsSuccess(petModel);
         methods.putPetUpgradesAndCheckIfChanged(petModel);
         methods.deletePetAndCheckIfDeleted(petModel);
