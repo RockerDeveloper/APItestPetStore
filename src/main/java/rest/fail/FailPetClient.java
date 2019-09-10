@@ -1,5 +1,6 @@
 package rest.fail;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -17,31 +18,31 @@ public class FailPetClient {
                 .baseUri("http://petstore.swagger.io/v2")
                 .basePath("/pet/");
     }
-
+    @Step
     public FailPetModel failPetModelAfterChange(FailPetModel failPetModel){
         return failPetModel
                 .setId(12)
                 .setStatus(77);
     }
-
+    @Step
     public Response postFailPet(FailPetModel failPetModel){
         return trueSetUp()
                 .body(failPetModel)
                 .post();
     }
-
+    @Step
     public Response getFailPetById(FailPetModel failPetModel){
         return trueSetUp()
                 //.pathParam("id",failPetModel.getId())
                 .get(String.valueOf(failPetModel.getId()));
     }
-
+    @Step
     public  Response putFailPet(FailPetModel failPetModel){
         return trueSetUp()
                 .body(failPetModelAfterChange(failPetModel))
                 .put();
     }
-
+    @Step
     public Response deleteFailPetById(FailPetModel failPetModel){
         return trueSetUp()
                 //.pathParam("id",failPetModel.getId())

@@ -1,4 +1,4 @@
-package rest.BL;
+package rest.utils;
 
 import io.restassured.response.Response;
 import rest.models.petModels.PetModel;

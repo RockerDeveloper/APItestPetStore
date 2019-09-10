@@ -13,9 +13,9 @@ import rest.models.petModels.PetModel;
 import rest.models.storeModels.StoreModel;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static rest.BL.ParseIntoClass.parseIntoOrder;
 import static rest.builder.orderBuilder.OderBuilder.orderBuilder;
 import static rest.builder.petBuilder.BuilderPet.petBuilder;
+import static rest.utils.ParseIntoClass.parseIntoOrder;
 
 @Execution(ExecutionMode.CONCURRENT)
 public class StoreAPITests extends StoreApiMethods {

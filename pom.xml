@@ -16,7 +16,7 @@
         <junit.vintage.version>5.3.1</junit.vintage.version>
         <junit.platform.version>1.3.1</junit.platform.version>
         <allure-junit5.version>2.9.0</allure-junit5.version>
-        <aspectj.version>1.6.8</aspectj.version>
+        <aspectj.version>1.9.4</aspectj.version>
         <allure-maven.version>2.8</allure-maven.version>
     </properties>
     <developers>
@@ -55,8 +55,6 @@
                                 <name>listener</name>
                                 <value>io.qameta.allure.junit5.AllureJunit5</value>
                             </property>
-=======
->>>>>>> 49af83800f945dcb31f953a61920d204fab2c952
                             <configurationParameters>
                                 junit.jupiter.conditions.deactivate = *
                                 junit.jupiter.extensions.autodetection.enabled = true
@@ -91,11 +89,6 @@
                             <version>${aspectj.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>5.1.0</version>
-                        </dependency>
-                        <dependency>
                             <groupId>org.junit.platform</groupId>
                             <artifactId>junit-platform-surefire-provider</artifactId>
                             <version>1.3.1</version>
@@ -112,6 +105,12 @@
         </pluginManagement>
     </build>
     <dependencies>
+        <!--Log$j-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
         <!--Selenium Dependency-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

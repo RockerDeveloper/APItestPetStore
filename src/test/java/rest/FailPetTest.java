@@ -1,5 +1,6 @@
 package rest;
 
+import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -13,8 +14,7 @@ import rest.fail.FailPetModel;
 
 @Execution(ExecutionMode.CONCURRENT)
 @Feature("Invalid Model of Pet")
-public class FailPetTest {
-
+public class FailPetTest extends BaseTest {
     private ReadyAPIMethodsForPet methods = new ReadyAPIMethodsForPet();
     private FailPetModel petModel;
 
@@ -27,7 +27,7 @@ public class FailPetTest {
     @Story("Adding one pet with incorrect fields and check if the pet has been placed")
     @Description("Name, status and category have a type int")
     public void postFailPetAndGetIt() {
-        methods.postPetAndcheckIfOperationIsSucces(petModel);
+        methods.postPetAndCheckIfOperationIsSuccess(petModel);
 
     }
 
@@ -35,7 +35,7 @@ public class FailPetTest {
     @Story("Adding one pet with incorrect fields and check if the pet has been placed and update this pet")
     @Description("Name, status and category have a type int and after post change the id and status")
     public void updateFailPet(){
-        methods.postPetAndcheckIfOperationIsSucces(petModel);
+        methods.postPetAndCheckIfOperationIsSuccess(petModel);
         methods.putPetUpgradesAndCheckIfChanged(petModel);
 
     }
@@ -43,7 +43,8 @@ public class FailPetTest {
     @Story("Adding one pet with incorrect fields and check if the pet has been placed and trying delete pet ")
     @Description("Name, status and category have a type int and after post if the pet has been placed trying to delete it")
     public void deleteFailPet(){
-        methods.postPetAndcheckIfOperationIsSucces(petModel);
+        methods.postPetAndCheckIfOperationIsSuccess(petModel);
         methods.deletePetAndCheckIfDeleted(petModel);//error
     }
+
 }

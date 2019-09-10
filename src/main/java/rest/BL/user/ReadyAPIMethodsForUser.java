@@ -7,9 +7,9 @@ import rest.client.userClient.UserApiMethods;
 import rest.models.userModels.UserModel;
 import rest.utils.Utils;
 
-import static rest.BL.ParseIntoClass.parseIntoUser;
 import static rest.assertions.BaseAssertions.assertContentTypeAndStatusCode;
 import static rest.assertions.UserAssertions.checkIfUserLogInSuccessfully;
+import static rest.utils.ParseIntoClass.parseIntoUser;
 
 public class ReadyAPIMethodsForUser extends UserApiMethods {
     private UserAssertions userAssertions = new UserAssertions();

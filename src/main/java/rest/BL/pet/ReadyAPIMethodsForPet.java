@@ -1,5 +1,6 @@
 package rest.BL.pet;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import rest.client.petClient.PetAPIMethods;
 import rest.fail.FailPetClient;
@@ -25,8 +26,9 @@ public class ReadyAPIMethodsForPet {
         assertContentTypeAndStatusCode(response, "application/json",
                 Utils.statusCode.SUCCESS.getStatusCode());
     }
-
-    public void postPetAndcheckIfOperationIsSucces(FailPetModel failPetModel){
+    @Step
+    public void postPetAndCheckIfOperationIsSuccess(FailPetModel failPetModel){
+//        log.info("post Pet");
         response = failMethods.postFailPet(failPetModel);
         assertContentTypeAndStatusCode(response, "application/json",
                 Utils.statusCode.SERVERERROR.getStatusCode());

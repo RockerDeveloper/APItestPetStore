@@ -6,8 +6,8 @@ import rest.models.storeModels.StoreModel;
 import rest.utils.Utils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static rest.BL.ParseIntoClass.parseIntoOrder;
 import static rest.assertions.BaseAssertions.assertContentTypeAndStatusCode;
+import static rest.utils.ParseIntoClass.parseIntoOrder;
 
 public class ReadyAPIMethodsForOrder extends StoreApiMethods {
     private Response response;

@@ -2,6 +2,7 @@ package rest;
 
 import io.restassured.response.Response;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -18,8 +19,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static rest.BL.ParseIntoClass.parseIntoPet;
 import static rest.builder.petBuilder.BuilderPet.petBuilder;
+import static rest.utils.ParseIntoClass.parseIntoPet;
 
 @Execution(ExecutionMode.CONCURRENT)
 public class RestPetStoreTests extends PetAPIMethods {
@@ -27,6 +28,7 @@ public class RestPetStoreTests extends PetAPIMethods {
     private PetModel petModel;
     private ReadyAPIMethodsForPet methods = new ReadyAPIMethodsForPet();
     private Response response;
+    final static Logger logger = Logger.getLogger(RestPetStoreTests.class);
 
     @BeforeEach
     void setUp() {
@@ -55,6 +57,7 @@ public class RestPetStoreTests extends PetAPIMethods {
     public void testPetPost() {
         PetModel petsample = petBuilder();
         response = postPetStore(petsample);
+        logger.info("");
         assertEquals(200, response.getStatusCode());
         assertEquals(12, petsample.getId());
     }
