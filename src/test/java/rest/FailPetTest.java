@@ -4,8 +4,10 @@ import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import rest.BL.pet.ReadyAPIMethodsForPet;
@@ -14,7 +16,10 @@ import rest.fail.FailPetModel;
 
 @Execution(ExecutionMode.CONCURRENT)
 @Feature("Invalid Model of Pet")
-public class FailPetTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class FailPetTest  {
+
+    private static Logger logger = Logger.getLogger(FailPetTest.class);
     private ReadyAPIMethodsForPet methods = new ReadyAPIMethodsForPet();
     private FailPetModel petModel;
 
